@@ -37,6 +37,28 @@ class App extends Component {
       ]
     })
   }
+
+  nameChangedHandler = (event) => {
+    this.setState(
+      {
+        perons:[
+          {
+            name:'Nick',
+            age:16
+          },
+          {
+            name:event.target.value,
+            age:30
+          },
+          {
+            name:'Dimple',
+            age:30
+          },
+        ]
+      }
+    )
+
+  }
   render() {
     return (
       <div className="App">
@@ -48,10 +70,13 @@ class App extends Component {
           age={this.state.perons[0].age}/>
         <Person 
           name={this.state.perons[1].name} 
-          age={this.state.perons[1].age}>My Hobby: PUBG</Person>
+          age={this.state.perons[1].age}
+          changed={this.nameChangedHandler}
+          >My Hobby: PUBG</Person>
         <Person 
           name={this.state.perons[2].name} 
-          age={this.state.perons[2].age}/>
+          age={this.state.perons[2].age}
+          />
       </div>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1','','KUNAL'));
